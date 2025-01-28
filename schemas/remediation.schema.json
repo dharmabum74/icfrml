@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/sox-icfr/remediation.schema.json",
+  "title": "Remediation",
+  "description": "Schema for capturing a remediation plan to address a control deficiency.",
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the remediation (e.g., 'REM-001')."
+    },
+    "name": {
+      "type": "string",
+      "description": "Short descriptive name of the remediation initiative."
+    },
+    "description": {
+      "type": "string",
+      "description": "Details of the corrective action or plan."
+    },
+    "deficiencyId": {
+      "type": "string",
+      "description": "Reference to the deficiency that prompted this remediation."
+    },
+    "owner": {
+      "type": "string",
+      "description": "Individual or role responsible for carrying out the remediation."
+    },
+    "dueDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Target completion date for the remediation."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Not Started", "In Progress", "Completed"],
+      "description": "Current status of the remediation."
+    }
+  },
+
+  "required": ["id", "name", "description", "deficiencyId"],
+  "additionalProperties": false
+}
