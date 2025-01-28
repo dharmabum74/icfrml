@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/sox-icfr/reference.schema.json",
+  "title": "Reference",
+  "description": "Schema for referencing authoritative literature (COSO, PCAOB, IFRS, etc.) for SOX/ICFR alignment.",
+  "type": "object",
+
+  "properties": {
+    "referenceId": {
+      "type": "string",
+      "description": "A unique identifier for this reference (e.g., 'COSO-PRINCIPLE-10', 'AS2201.09')."
+    },
+    "title": {
+      "type": "string",
+      "description": "Short title or label (e.g., 'COSO Principle 10', 'PCAOB AS2201.09')."
+    },
+    "description": {
+      "type": "string",
+      "description": "A brief explanation of what this reference covers."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Link to the full text or official document."
+    },
+    "framework": {
+      "type": "string",
+      "description": "Name of the framework or standard (e.g., 'COSO', 'PCAOB', 'IFRS')."
+    }
+  },
+
+  "required": ["referenceId", "title"],
+  "additionalProperties": true
+}
