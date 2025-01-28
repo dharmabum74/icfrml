@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/sox-icfr/deficiency.schema.json",
+  "title": "Deficiency",
+  "description": "Schema for capturing a control deficiency identified during testing in a SOX/ICFR environment.",
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the deficiency (e.g., 'DEF-001')."
+    },
+    "controlIds": {
+      "type": "array",
+      "description": "Which control(s) this deficiency relates to.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "findingDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the deficiency was identified."
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "Control Deficiency",
+        "Significant Deficiency",
+        "Material Weakness"
+      ],
+      "description": "Level of severity in SOX terms."
+    },
+    "description": {
+      "type": "string",
+      "description": "Details of the deficiency and circumstances."
+    },
+    "remediationId": {
+      "type": "string",
+      "description": "Reference to a Remediation plan for this deficiency."
+    }
+  },
+
+  "required": ["id", "controlIds", "findingDate", "severity", "description"],
+  "additionalProperties": false
+}
