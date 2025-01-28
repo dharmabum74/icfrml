@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.com/sox-icfr/control.schema.json",
+  "$id": "https://github.com/dharmabum74/sox-icfr-schema/blob/main/schemas/control.schema.json",
   "title": "Control",
   "description": "Schema for defining a control in a SOX/ICFR context.",
   "type": "object",
