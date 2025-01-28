@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/sox-icfr/iuc.schema.json",
+  "title": "InformationUsedInControl",
+  "description": "Schema for capturing the data or reports that a control relies on in SOX/ICFR (IUC).",
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the IUC item (e.g., 'IUC-001')."
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the report, data extract, or log (e.g., 'Monthly Revenue Report')."
+    },
+    "sourceSystem": {
+      "type": "string",
+      "description": "System or application generating this information (e.g., 'SAP ERP')."
+    },
+    "keyDataPoints": {
+      "type": "array",
+      "description": "List of critical fields or columns in the report (e.g., 'Invoice date', 'Revenue').",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner": {
+      "type": "string",
+      "description": "Person/department responsible for maintaining or generating the IUC item."
+    },
+    "lastRefreshed": {
+      "type": "string",
+      "format": "date",
+      "description": "Last date/time the report or data was refreshed."
+    },
+    "purpose": {
+      "type": "string",
+      "description": "Brief statement on how/why this information is used in the control."
+    }
+  },
+
+  "required": ["id", "name", "sourceSystem"],
+  "additionalProperties": false
+}
