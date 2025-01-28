@@ -1,4 +1,18 @@
-# icfrml
-A flexible open-source schema supporting a top-down approach to Sarbanes-Oxley (SOX) and Internal Control over Financial Reporting (ICFR). This repository captures entity-level assessments (COSO), financial statement risks, controls, control testing, deficiencies, remediation, and Information Used in the Control (IUC). Designed to unify compliance data, reference authoritative frameworks, and integrate seamlessly with AI-based automation.
+# SOX/ICFR Schema
 
-I'm working on this as an exercise, with the overarching purpose of having Norman Marks notice it and call it stupid.
+Open-source JSON-based schema for top-down SOX/ICFR risk assessments, controls, testing, and IUC documentation.
+
+## Objectives
+
+- Facilitate and standardize the process of assessing and documenting internal controls over financial reporting.
+- Ensure the portability of data between different systems.
+
+## Features
+
+- JSON-based schema for easy integration and data exchange.
+- Comprehensive structure for risk assessments, controls, testing, and IUC documentation.
+
+## Usage
+
+To use this schema, include the JSON definitions in your project's configuration and map your data accordingly. This will enable standardized data exchange and improve the consistency of your SOX/ICFR documentation.
+
