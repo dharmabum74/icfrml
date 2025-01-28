@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/sox-icfr/control.schema.json",
+  "title": "Control",
+  "description": "Schema for defining a control in a SOX/ICFR context.",
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the control (e.g., 'CTRL-001')."
+    },
+    "name": {
+      "type": "string",
+      "description": "Short descriptive name for the control."
+    },
+    "description": {
+      "type": "string",
+      "description": "Details of the control's purpose or mechanism."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["Manual", "Automated"],
+      "description": "Indicates whether the control is manual or automated."
+    },
+    "frequency": {
+      "type": "string",
+      "enum": ["Daily", "Weekly", "Monthly", "Quarterly", "Annual", "Ongoing"],
+      "description": "Frequency with which the control operates."
+    },
+    "processId": {
+      "type": "string",
+      "description": "ID referencing the business process this control belongs to."
+    },
+    "assertionsAddressed": {
+      "type": "array",
+      "description": "List of financial statement assertions this control helps address.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Existence",
+          "Occurrence",
+          "Completeness",
+          "Accuracy",
+          "Cutoff",
+          "Valuation",
+          "RightsAndObligations",
+          "PresentationAndDisclosure"
+        ]
+      }
+    },
+    "keyControl": {
+      "type": "boolean",
+      "description": "Whether this control is considered 'key' for SOX/ICFR."
+    },
+    "informationUsedIds": {
+      "type": "array",
+      "description": "References (IDs) to any Information Used in Control (IUC).",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+
+  "required": ["id", "name", "description"],
+  "additionalProperties": false
+}
