@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/sox-icfr/entityLevel.schema.json",
+  "title": "EntityLevelAssessment",
+  "description": "Schema for capturing entity-level COSO assessment and controls in a SOX/ICFR context.",
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the entity-level assessment (e.g., 'ELA-2025')."
+    },
+    "organizationName": {
+      "type": "string",
+      "description": "Name of the organization or reporting entity."
+    },
+    "fiscalYear": {
+      "type": "integer",
+      "description": "Fiscal year for this assessment (e.g., 2025)."
+    },
+    "cosoComponents": {
+      "type": "array",
+      "description": "High-level evaluation of each COSO component (Control Environment, Risk Assessment, etc.).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "componentName": {
+            "type": "string",
+            "enum": [
+              "Control Environment",
+              "Risk Assessment",
+              "Control Activities",
+              "Information and Communication",
+              "Monitoring"
+            ]
+          },
+          "overallAssessment": {
+            "type": "string",
+            "enum": ["Strong", "Moderate", "Weak"]
+          },
+          "notes": {
+            "type": "string",
+            "description": "Any qualitative notes about this COSO component."
+          }
+        },
+        "required": ["componentName", "overallAssessment"],
+        "additionalProperties": false
+      }
+    },
+    "entityLevelControls": {
+      "type": "array",
+      "description": "List of entity-level controls (IDs or embedded definitions).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "controlId": {
+            "type": "string",
+            "description": "Reference to a Control object if stored separately."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name or short description of the entity-level control."
+          }
+        },
+        "required": ["controlId", "name"],
+        "additionalProperties": true
+      }
+    }
+  },
+
+  "required": ["id", "organizationName", "fiscalYear", "cosoComponents"],
+  "additionalProperties": false
+}
