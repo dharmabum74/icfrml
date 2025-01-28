@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/sox-icfr/user.schema.json",
+  "title": "User",
+  "description": "Schema for representing a user and their role/permissions in a SOX/ICFR tool.",
+  "type": "object",
+
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "Unique identifier for the user (e.g., 'USER-123')."
+    },
+    "userName": {
+      "type": "string",
+      "description": "User's full name or display name."
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "User's email address."
+    },
+    "roles": {
+      "type": "array",
+      "description": "List of roles assigned to this user (e.g., 'Control Owner', 'Reviewer', 'Approver').",
+      "items": { "type": "string" }
+    },
+    "permissions": {
+      "type": "array",
+      "description": "Fine-grained permissions (e.g., 'read-only', 'edit', 'approve').",
+      "items": { "type": "string" }
+    }
+  },
+
+  "required": ["userId", "userName"],
+  "additionalProperties": false
+}
