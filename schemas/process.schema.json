@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/sox-icfr/process.schema.json",
+  "title": "Process",
+  "description": "Schema for defining a key business process or sub-process in a SOX/ICFR environment.",
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the process (e.g., 'PROC-OTC')."
+    },
+    "name": {
+      "type": "string",
+      "description": "Descriptive name of the process (e.g., 'Order to Cash')."
+    },
+    "owner": {
+      "type": "string",
+      "description": "Department or individual responsible for this process."
+    },
+    "subProcesses": {
+      "type": "array",
+      "description": "Sub-processes that fall under this main process (if any).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ID for the sub-process."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the sub-process (e.g., 'Billing & Invoicing')."
+          },
+          "description": {
+            "type": "string",
+            "description": "Short description of what this sub-process involves."
+          }
+        },
+        "required": ["id", "name"],
+        "additionalProperties": false
+      }
+    },
+    "references": {
+      "type": "array",
+      "description": "Optional references to frameworks or internal policies (COSO, company policies, etc.).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "referenceId": {
+            "type": "string",
+            "description": "ID or label of the reference (e.g., 'COSO-Principle-10')."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Link to relevant documentation or reference material."
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+
+  "required": ["id", "name"],
+  "additionalProperties": false
+}
