@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/sox-icfr/fsa.schema.json",
+  "title": "FinancialStatementArea",
+  "description": "Schema for defining a financial statement area or line item in SOX/ICFR.",
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the financial statement area (e.g., 'FSA-001')."
+    },
+    "lineItem": {
+      "type": "string",
+      "description": "Name of the financial statement line item or disclosure (e.g., 'Revenue', 'Inventory')."
+    },
+    "assertions": {
+      "type": "array",
+      "description": "Relevant financial statement assertions for this line item.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Existence",
+          "Occurrence",
+          "Completeness",
+          "Accuracy",
+          "Cutoff",
+          "Valuation",
+          "RightsAndObligations",
+          "PresentationAndDisclosure"
+        ]
+      }
+    },
+    "materiality": {
+      "type": "string",
+      "description": "Materiality level for the line item (e.g., 'High', 'Medium', 'Low').",
+      "enum": ["High", "Medium", "Low"]
+    },
+    "inherentRiskLevel": {
+      "type": "string",
+      "description": "Inherent risk rating for this area (e.g., 'High', 'Medium', 'Low').",
+      "enum": ["High", "Medium", "Low"]
+    },
+    "residualRiskLevel": {
+      "type": "string",
+      "description": "Residual risk rating after considering controls (e.g., 'High', 'Medium', 'Low').",
+      "enum": ["High", "Medium", "Low"]
+    },
+    "relatedRisks": {
+      "type": "array",
+      "description": "List of Risk IDs (strings) that affect this financial statement area.",
+      "items": { "type": "string" }
+    }
+  },
+
+  "required": ["id", "lineItem"],
+  "additionalProperties": false
+}
