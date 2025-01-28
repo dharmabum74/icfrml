@@ -1,1 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dharmabum74/sox-icfr-schema/edit/main/schemas/risk.schema.json",
+  "title": "Risk",
+  "description": "Schema for describing a Risk in a top-down SOX/ICFR context",
+  "type": "object",
 
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the risk."
+    },
+    "name": {
+      "type": "string",
+      "description": "Short descriptive name for the risk."
+    },
+    "description": {
+      "type": "string",
+      "description": "Details about the nature or context of this risk."
+    },
+    "financialStatementAreaId": {
+      "type": "string",
+      "description": "ID referencing the related Financial Statement Area (if applicable)."
+    },
+    "assertions": {
+      "type": "array",
+      "description": "Relevant financial statement assertions.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Existence",
+          "Occurrence",
+          "Completeness",
+          "Accuracy",
+          "Cutoff",
+          "Valuation",
+          "RightsAndObligations",
+          "PresentationAndDisclosure"
+        ]
+      }
+    },
+    "likelihood": {
+      "type": "string",
+      "description": "Likelihood rating (e.g., Low, Medium, High).",
+      "enum": ["Low", "Medium", "High"]
+    },
+    "impact": {
+      "type": "string",
+      "description": "Impact or severity rating (e.g., Low, Medium, High).",
+      "enum": ["Low", "Medium", "High"]
+    },
+    "controlIds": {
+      "type": "array",
+      "description": "Array of control IDs that mitigate this risk.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+
+  "required": ["id", "name", "description"],
+  "additionalProperties": false
+}
