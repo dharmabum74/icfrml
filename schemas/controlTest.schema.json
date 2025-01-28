@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/sox-icfr/controlTest.schema.json",
+  "title": "ControlTest",
+  "description": "Schema for describing how a control is tested in a SOX/ICFR environment.",
+  "type": "object",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the control test (e.g., 'TP-001')."
+    },
+    "controlId": {
+      "type": "string",
+      "description": "Which control this test plan applies to."
+    },
+    "name": {
+      "type": "string",
+      "description": "Name or summary of the test plan."
+    },
+    "testFrequency": {
+      "type": "string",
+      "enum": ["Annual", "Semi-Annual", "Quarterly", "Monthly", "Ad-hoc"],
+      "description": "How often the test is performed."
+    },
+    "testAttributes": {
+      "type": "array",
+      "description": "Key steps or attributes tested (e.g., sample review, sign-off evidence).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "iucTestAttributes": {
+      "type": "array",
+      "description": "Procedures specifically related to verifying IUC completeness/accuracy.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "iucId": { "type": "string" },
+          "procedures": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["iucId", "procedures"]
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Not Started", "In Progress", "Completed"],
+      "description": "Current status of the test plan."
+    }
+  },
+
+  "required": ["id", "controlId", "name"],
+  "additionalProperties": false
+}
