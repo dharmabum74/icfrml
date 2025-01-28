@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.com/sox-icfr/controlTest.schema.json",
+  "$id": "https://github.com/dharmabum74/sox-icfr-schema/blob/main/schemas/controlTest.schema.json",
   "title": "ControlTest",
   "description": "Schema for describing how a control is tested in a SOX/ICFR environment.",
   "type": "object",
